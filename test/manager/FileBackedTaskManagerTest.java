@@ -6,7 +6,7 @@ import alltasks.Task;
 import exception.ManagerSaveException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import java.io.*;
 import java.util.ArrayList;
