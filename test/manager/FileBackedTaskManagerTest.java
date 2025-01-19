@@ -6,7 +6,7 @@ import alltasks.Task;
 import exception.ManagerSaveException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class FileBackedTaskManagerTest {
     InMemoryHistoryManager history;
     FileBackedTaskManager taskManager;
     File file;
-    
+
     @BeforeEach
     void beforeEach() throws IOException {
         file = File.createTempFile("restoreTest", ".csv");
@@ -53,11 +53,11 @@ public class FileBackedTaskManagerTest {
 
     @Test
     void shouldLoadFromFile() throws IOException {
-            List<String> testTasks = new ArrayList<>();
-            testTasks.add("id,type,name,status,description,epic");
-            testTasks.add("1,TASK,1 задача,NEW,Описание 1 задачи,");
-            testTasks.add("2,EPIC,Первый эпик,NEW,Описание первого эпика,");
-            testTasks.add("3,SUBTASK,Первый сабтаск,NEW,Описание первого сабтаска,2");
+        List<String> testTasks = new ArrayList<>();
+        testTasks.add("id,type,name,status,description,epic");
+        testTasks.add("1,TASK,1 задача,NEW,Описание 1 задачи,");
+        testTasks.add("2,EPIC,Первый эпик,NEW,Описание первого эпика,");
+        testTasks.add("3,SUBTASK,Первый сабтаск,NEW,Описание первого сабтаска,2");
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
             for (String task : testTasks) {
                 bufferedWriter.write(task);
